@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Appointment",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
