@@ -6,11 +6,13 @@
           My Appointment List
         </ion-title>
 
-        <ion-chip class="ion-text-right" (click)="presentAlertLogout()">
+        <ion-chip *ngIf="authService.userData as user" class="ion-text-right" (click)="presentAlertLogout()">
           <ion-avatar>
-            <img src="{{authService.userData.photoURL}}" />
+            <img src="{{u.photoURL}}" />
           </ion-avatar>
-          <ion-label>{{authService.userData.displayName}}</ion-label>
+          <ion-label> 
+            {{user.displayName}}          
+          </ion-label>
         </ion-chip>
       </ion-row>
     </ion-grid>
