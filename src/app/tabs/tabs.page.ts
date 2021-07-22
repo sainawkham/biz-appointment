@@ -10,11 +10,9 @@ import { AuthenticationService } from "../Shared/authentication-service";
 export class TabsPage {
 
   constructor(public authService: AuthenticationService, 
-              public router: Router) {}
+              public router: Router) 
+              { }
 
-  ngOnInit() {
-    if (!this.authService.isLoggedIn)
-      this.router.navigate(['login']);
-  }
+  ngOnInit() { }
 
 }

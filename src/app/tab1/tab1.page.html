@@ -1,8 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-title class="ion-text-left">
+          My Appointment List
+        </ion-title>
+
+        <ion-chip class="ion-text-right" (click)="presentAlertLogout()">
+          <ion-avatar>
+            <img src="{{authService.userData.photoURL}}" />
+          </ion-avatar>
+          <ion-label>{{authService.userData.displayName}}</ion-label>
+        </ion-chip>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
