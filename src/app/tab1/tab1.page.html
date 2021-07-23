@@ -8,7 +8,7 @@
 
         <ion-chip *ngIf="authService.userData as user" class="ion-text-right" (click)="presentAlertLogout()">
           <ion-avatar>
-            <img src="{{us.photoURL}}" />
+            <img src="{{user.photoURL}}" />
           </ion-avatar>
           <ion-label> 
             {{user.displayName}}          
