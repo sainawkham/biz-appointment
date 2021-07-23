@@ -15,6 +15,6 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     if (this.authService.isLoggedIn) 
-      this.router.navigate(['tab']);
+      this.router.navigate(['tabs']);
   }
 }
