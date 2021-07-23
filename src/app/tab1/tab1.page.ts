@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../Shared/authentication-service';
 
 @Component({
@@ -10,8 +11,19 @@ import { AuthenticationService } from '../Shared/authentication-service';
 export class Tab1Page {
   constructor(
     public authService: AuthenticationService,
+    public router: Router,
     public alertController: AlertController
   ) {}
+
+  ngOnInit() {
+    this.authService.ngFireAuth.onAuthStateChanged(user => {
+      if (user) {
+        console.log('user is logged in, info: ', user);
+      } else {
+        this.router.navigate(['login']);
+      }
+    });
+  }
 
   async presentAlertLogout() {
     const alert = await this.alertController.create({
