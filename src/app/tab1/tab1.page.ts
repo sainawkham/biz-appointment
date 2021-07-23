@@ -16,6 +16,7 @@ export class Tab1Page {
   ) {}
 
   ngOnInit() {
+    
     this.authService.ngFireAuth.onAuthStateChanged(user => {
       if (user) {
         console.log('user is logged in, info: ', user);
