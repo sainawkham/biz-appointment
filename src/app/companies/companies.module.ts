@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { CompaniesPageRoutingModule } from './companies-routing.module';
 
@@ -13,6 +14,7 @@ import { CompaniesPage } from './companies.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    ExploreContainerComponentModule,
     CompaniesPageRoutingModule
   ],
   declarations: [CompaniesPage]
