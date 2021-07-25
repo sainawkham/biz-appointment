@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
-import { auth } from 'firebase/app';
+//import { auth } from 'firebase/app';
+import firebase from "firebase/app"
 import { User } from "./user";
 import { Router } from "@angular/router";
 import { AngularFireAuth } from "@angular/fire/auth";
@@ -72,7 +73,7 @@ export class AuthenticationService {
 
   // Sign in with Gmail
   GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
+    return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
   }
 
   // Auth providers

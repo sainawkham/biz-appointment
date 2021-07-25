@@ -12,7 +12,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
-import { GeneralServiceService } from './Shared/general-service.service';
+//import { GeneralService } from './Shared/general-service.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +25,7 @@ import { GeneralServiceService } from './Shared/general-service.service';
             AngularFireAuthModule,
             AngularFireDatabaseModule,
             AngularFirestoreModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy, providers: [GeneralServiceService] }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
