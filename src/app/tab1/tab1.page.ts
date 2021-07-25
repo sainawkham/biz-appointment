@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../Shared/authentication-service';
@@ -8,10 +8,11 @@ import { AuthenticationService } from '../Shared/authentication-service';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit{
   constructor(
     public authService: AuthenticationService,
     public router: Router,
+    public ngZone: NgZone,
     public alertController: AlertController
   ) {}
 
@@ -19,9 +20,11 @@ export class Tab1Page {
     
     this.authService.ngFireAuth.onAuthStateChanged(user => {
       if (user) {
-        console.log('user is logged in, info: ', user);
+        //console.log('user is logged in, info: ', user);
       } else {
-        this.router.navigate(['login']);
+        this.ngZone.run(() => {
+          this.router.navigate(['login']);
+        })
       }
     });
   }
