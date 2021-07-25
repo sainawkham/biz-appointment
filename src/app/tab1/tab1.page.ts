@@ -30,30 +30,5 @@ export class Tab1Page implements OnInit{
       }
     });
   }
-
-  /*async presentAlertLogout() {
-    const alert = await this.alertController.create({
-      //cssClass: 'my-custom-class',
-      header: 'Logout',
-      message: '<strong>Are you sure to logout </strong>?',
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: blah => {
-            console.log('Confirm Cancel: blah');
-          }
-        },
-        {
-          text: 'Okay',
-          handler: () => {
-            this.authService.SignOut();
-          }
-        }
-      ]
-    });
-
-    await alert.present();
-  }*/
+ 
 }
