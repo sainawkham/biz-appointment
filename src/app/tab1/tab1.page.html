@@ -6,7 +6,7 @@
           My Appointment List
         </ion-title>
 
-        <ion-chip *ngIf="authService.userData as user" class="ion-text-right" (click)="presentAlertLogout()">
+        <ion-chip *ngIf="authService.userData as user" class="ion-text-right" (click)="genService.presentAlertLogout()">
           <ion-avatar>
             <img src="{{user.photoURL}}" />
           </ion-avatar>

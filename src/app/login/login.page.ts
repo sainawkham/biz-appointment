@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../Shared/authentication-service';
 
@@ -10,6 +10,7 @@ import { AuthenticationService } from '../Shared/authentication-service';
 export class LoginPage implements OnInit {
   constructor(
     public authService: AuthenticationService,
+    public ngZone: NgZone,
     public router: Router
   ) {}
 
@@ -18,7 +19,9 @@ export class LoginPage implements OnInit {
       if (user) {
         //console.log('user is logged in, info: ', user);
       } else {
-        this.router.navigate(['login']);
+        this.ngZone.run(() => {
+          this.router.navigate(['login']);
+        })
       }
     });
   }
