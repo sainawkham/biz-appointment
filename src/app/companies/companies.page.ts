@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 
-interface Companies {
-  companyName: string,  
-  Address: string  
+import { CompaniesService } from '../services/companies.service';
+
+export class Companies {
+  $key: string;
+  companyName: string;
+  Address: string;
 }
 
 @Component({
@@ -13,10 +15,27 @@ interface Companies {
 })
 
 export class CompaniesPage implements OnInit {
+
+  comList : Companies[];
   
-  constructor(public db: AngularFirestore) {}
+  constructor(private comService: CompaniesService) {}
 
   ngOnInit() {
-   
+   this.comService.getCompanies().subscribe((res)=> {
+     this.comList = res.map((t) => {
+       return {
+         id: t.payload.doc.id,
+         ...t.payload.doc.data() as Companies
+       };
+     })
+   });
   }
+
+  getcomList() {
+    this.comService.getCompanies()
+    .subscribe((data) => {
+      console.log(data)
+    })
+  }
+
 }
