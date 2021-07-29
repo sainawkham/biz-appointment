@@ -8,12 +8,20 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let clist of comList" lines="full">
-      <ion-label>
-        <strong>{{clist.companyName}}</strong>
-        <p>{{clist.Address}}</p>
-      </ion-label>     
-    </ion-item>
+    <ion-item-sliding *ngFor="let clist of comList" side="start">
+
+      <ion-item  lines="full">
+        <ion-label>
+          <strong>{{clist.companyName}}</strong>
+          <p>{{clist.Address}}</p>
+        </ion-label>     
+      </ion-item>
+      
+      <ion-item-options side="end">
+        <ion-item-option (click)="unread(item)">Unread</ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
 
